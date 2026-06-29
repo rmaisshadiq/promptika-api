@@ -37,5 +37,11 @@ func SetupRoutes(r *gin.Engine) {
 			reports.POST("/generate", controllers.GenerateReport)
 			reports.GET("", controllers.GetReportHistory)
 		}
+
+		// Personal analytics dashboard
+		users := protected.Group("/users")
+		{
+			users.GET("/dashboard-analytics", controllers.GetDashboardAnalytics)
+		}
 	}
 }
